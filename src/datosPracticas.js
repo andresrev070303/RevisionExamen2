@@ -12,6 +12,11 @@ class Practicas{
     this.fecha = fecha;
     this.enlace = enlace;
   }
+  obtenerPractica(nombre){
+    if(this.nombre == nombre){
+        return this;
+    }
+  }
 }
 
 export default Practicas;
