@@ -12,9 +12,19 @@ class Practicas{
     this.fecha = fecha;
     this.enlace = enlace;
   }
+
   obtenerPractica(nombre){
     if(this.nombre == nombre){
         return this;
+    }
+  }
+
+  eliminarDatos(nombre){
+    if(this.nombre == nombre){
+        this.nombre = null;
+        this.descripcion = null;
+        this.fecha = null;
+        this.enlace = null;
     }
   }
 }

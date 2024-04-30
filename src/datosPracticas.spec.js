@@ -26,4 +26,10 @@ describe("Crear un programa gamificado para TDDLab", () => {
     practica.cargarDatos("FizzBuzz");
     expect(practica.obtenerPractica("FizzBuzz")).toEqual(practica);
   });
+  it("Si ingreso el nombre de una práctica y luego la elimino, debería ser nula", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("FizzBuzz");
+    practica.eliminarDatos("FizzBuzz");
+    expect(practica.obtenerPractica("FizzBuzz")).toBeUndefined(); 
+  });
 });
