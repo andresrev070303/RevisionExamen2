@@ -37,6 +37,14 @@ function cargarPracticasIniciales() {
   actualizarTablaPracticas();
 }
 
+function eliminarPractica(nombre) {
+  // Eliminar del array
+  console.log("Eliminando la practica: ", nombre);
+  practicas = practicas.filter(practica => practica.nombre !== nombre);
+  // Actualizar la tabla para reflejar los cambios
+  actualizarTablaPracticas();
+}
+
 function actualizarTablaPracticas() {
   const contenido = document.querySelector("#tabla-practicas");
   let salida = "";
@@ -48,9 +56,12 @@ function actualizarTablaPracticas() {
         <td>${practica.descripcion}</td>
         <td>${practica.fecha}</td>
         <td><a href="${practica.enlace}">${practica.enlace}</a></td>
+        <td><button onclick="eliminarPractica('${practica.nombre}')">Eliminar</button></td>
       </tr>
     `;
   });
 
   contenido.innerHTML = salida;
 }
+
+window.eliminarPractica = eliminarPractica;
