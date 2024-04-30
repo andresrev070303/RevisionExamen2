@@ -38,11 +38,16 @@ function cargarPracticasIniciales() {
 }
 
 function eliminarPractica(nombre) {
-  // Eliminar del array
-  console.log("Eliminando la practica: ", nombre);
-  practicas = practicas.filter(practica => practica.nombre !== nombre);
-  // Actualizar la tabla para reflejar los cambios
-  actualizarTablaPracticas();
+  if(confirm("¿Estás seguro de eliminar la práctica?")) {
+    const nuevaPractica = new Practicas();
+    nuevaPractica.eliminarDatos(nombre);
+    practicas = practicas.filter(practica => practica.nombre !== nombre);
+    actualizarTablaPracticas();
+  }
+  else{
+    console.log("No se eliminó la práctica");
+  }
+
 }
 
 function actualizarTablaPracticas() {
