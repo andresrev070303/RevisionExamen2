@@ -48,7 +48,6 @@ function actualizarTablaPracticas() {
         <td>${practica.descripcion}</td>
         <td>${practica.fecha}</td>
         <td><a href="${practica.enlace}">${practica.enlace}</a></td>
-        <td><button onclick="eliminarPractica('${practica.nombre}')">Eliminar</button></td>
       </tr>
     `;
   });
