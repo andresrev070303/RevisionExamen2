@@ -1,10 +1,12 @@
 class Practicas{
   constructor(){
     this.nombre = null;
+    this.descripcion = null;
   }
 
-  cargarDatos(nombre){
+  cargarDatos(nombre, descripcion){
     this.nombre = nombre;
+    this.descripcion = descripcion;
   }
 }
 
