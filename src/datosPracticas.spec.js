@@ -217,5 +217,6 @@ describe("Crear un programa gamificado para TDDLab", () => {
     const metricas = practica.motrarMetricas();
     expect(metricas.find(m => m.numeroCommit === numCommit).puntaje).toEqual(85);
   });
+
 });
 

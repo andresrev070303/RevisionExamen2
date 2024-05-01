@@ -87,7 +87,7 @@ function ingresarAMetricaDePractica(nombrePractica){
   proyectoContainer.innerHTML = '';
   proyectoContainer.style.display = 'block'; // Asegurar que el contenedor está visible
 
-  tablaEncabezados.style.display = 'block';
+  tablaEncabezados.style.display = 'none';
 
   if (practicaSeleccionada) {
     const tituloPracticaElement = document.createElement('h2');
@@ -97,6 +97,7 @@ function ingresarAMetricaDePractica(nombrePractica){
     const btnVolver = document.createElement('button');
     btnVolver.textContent = 'Volver a la lista de prácticas';
     btnVolver.addEventListener('click', function() {
+      tablaEncabezados.style.display = 'table';
       proyectoContainer.innerHTML = ''; // Limpiar contenedor de proyectos
       tablaPracticas.style.display = 'table'; // Mostrar la tabla de nuevo
       formularioPractica.style.display = 'block'; // Mostrar formulario de nuevo
@@ -132,7 +133,8 @@ function ingresarAMetricaDePractica(nombrePractica){
 
       if (!isNaN(numeroCommit) && !isNaN(puntaje) && explicacion) {
         practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion);
-        ingresarAMetricaDePractica(nombrePractica); // Actualiza la lista de métricas en pantalla
+        ingresarAMetricaDePractica(nombrePractica);
+        alert('Dato ingresado Correctamente.'); // Actualiza la lista de métricas en pantalla
       } else {
         alert('Por favor ingrese valores válidos.');
       }
