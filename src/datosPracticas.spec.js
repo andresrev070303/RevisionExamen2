@@ -72,6 +72,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     let explica = new Metrica(numCommit, puntaje,explicacion)
     expect(explica.getExplicacion()).toEqual("Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla");
   });
-
+  //12
+  it("Se añade ademas del numero de commit y el puntaje la explicacion de un segundo commit en las metricas", () => {
+    let numCommit = 2;
+    let puntaje = 90;
+    let explicacion = "Se añade la funcionalidad de regresar el mismo numero para un numero que no siga las reglas del FizzBuzz";
+    
+    let explica = new Metrica(numCommit, puntaje, explicacion)
+    expect(explica.getExplicacion()).toEqual("Se añade la funcionalidad de regresar el mismo numero para un numero que no siga las reglas del FizzBuzz");
+  });
 });
 
