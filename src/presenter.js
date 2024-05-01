@@ -76,6 +76,7 @@ function ingresarAMetricaDePractica(nombrePractica){
   const practicaSeleccionada = practicas.find(practica => practica.nombre === nombrePractica);
   const proyectoContainer = document.querySelector('#proyectoContainer');
   const tablaPracticas = document.querySelector('#tabla-practicas');
+  const tablaEncabezados = document.querySelector('#tabla-encabezado');
   const formularioPractica = document.querySelector('#proyectoForm');
 
   // Ocultar la tabla de prácticas y el formulario de entrada
@@ -85,6 +86,8 @@ function ingresarAMetricaDePractica(nombrePractica){
   // Limpiar el contenedor de proyecto y prepararlo para mostrar métricas
   proyectoContainer.innerHTML = '';
   proyectoContainer.style.display = 'block'; // Asegurar que el contenedor está visible
+  
+  tablaEncabezados.style.display = 'block';
 
   if (practicaSeleccionada) {
     const tituloPracticaElement = document.createElement('h2');
@@ -97,6 +100,7 @@ function ingresarAMetricaDePractica(nombrePractica){
       proyectoContainer.innerHTML = ''; // Limpiar contenedor de proyectos
       tablaPracticas.style.display = 'table'; // Mostrar la tabla de nuevo
       formularioPractica.style.display = 'block'; // Mostrar formulario de nuevo
+      actualizarTablaPracticas();
     });
     proyectoContainer.appendChild(btnVolver);
 
