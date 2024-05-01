@@ -1,4 +1,5 @@
 import Practicas from "./datosPracticas.js";
+import Metrica from "./metrica.js";
 
 describe("Crear un programa gamificado para TDDLab", () => {
   it("Si ingreso el nombre de una practica, me regresa el nombre", () => {
@@ -32,4 +33,13 @@ describe("Crear un programa gamificado para TDDLab", () => {
     practica.eliminarDatos("FizzBuzz");
     expect(practica.obtenerPractica("FizzBuzz")).toBeUndefined(); 
   });
+  
+  it("Se debe añadir un primer commit en las metricas", () => {
+    let numCommit = 1;
+
+    let metric = new Metrica(numCommit)
+    expect(metric.getNumreroCommit()).toEqual(1);
+  });
+
 });
+

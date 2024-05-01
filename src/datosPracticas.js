@@ -1,3 +1,4 @@
+
 class Practicas{
   constructor(){
     this.nombre = null;
