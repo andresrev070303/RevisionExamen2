@@ -184,5 +184,18 @@ describe("Crear un programa gamificado para TDDLab", () => {
         explicacion: "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla"
     }]);
   });
+
+  it("Debe poder añadir una métrica a una práctica y verificar que se añadió correctamente", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("Calculadora", "Prueba unitaria para suma", "2024-05-01", "https://github.com/example/Calculadora");
+    const numCommit = 3;
+    const puntaje = 85;
+    const explicacion = "Se añade suma de dos números.";
+    practica.anadirMetrica(numCommit, puntaje, explicacion);
+  
+    const metricas = practica.motrarMetricas();
+    expect(metricas.length).toEqual(1);
+    expect(metricas[0]).toEqual({ numeroCommit: numCommit, puntaje: puntaje, explicacion: explicacion });
+  });
 });
 
