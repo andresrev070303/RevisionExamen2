@@ -1,5 +1,6 @@
 import Practicas from "./datosPracticas.js";
 import Metrica from "./metrica.js";
+import MetricaArray from "./metricasArray.js";
 
 describe("Crear un programa gamificado para TDDLab", () => {
   it("Si ingreso el nombre de una practica, me regresa el nombre", () => {
@@ -80,6 +81,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     
     let explica = new Metrica(numCommit, puntaje, explicacion)
     expect(explica.getExplicacion()).toEqual("Se añade la funcionalidad de regresar el mismo numero para un numero que no siga las reglas del FizzBuzz");
+  });
+
+  it("Se logra añadir un commit dentro un array de metricas", () => {
+    let numCommit = 1;
+    let puntaje = 100;
+    let explicacion = "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla";
+    let metricArray = new MetricaArray();
+    expect(metricArray.desplegarMetrica()).toEqual([]);
   });
 });
 
