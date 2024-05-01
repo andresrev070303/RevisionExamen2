@@ -206,5 +206,16 @@ describe("Crear un programa gamificado para TDDLab", () => {
     const metricas = practica.motrarMetricas();
     expect(metricas.length).toEqual(0);
   });
+
+  it("Debe actualizar una métrica existente correctamente", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("Calculadora", "Prueba unitaria para suma", "2024-05-01", "https://github.com/example/Calculadora");
+    const numCommit = 1;
+    practica.anadirMetrica(numCommit, 75, "Primer commit");
+    practica.anadirMetrica(numCommit, 85, "Corrección de errores");
+  
+    const metricas = practica.motrarMetricas();
+    expect(metricas.find(m => m.numeroCommit === numCommit).puntaje).toEqual(85);
+  });
 });
 
