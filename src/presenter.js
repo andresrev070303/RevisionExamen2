@@ -125,6 +125,9 @@ function ingresarAMetricaDePractica(nombrePractica){
     inputExplicacion.placeholder = 'Explicación';
     const btnConfirmMetrica = document.createElement('button');
     btnConfirmMetrica.textContent = 'Agregar Métrica';
+
+    const messageDiv = document.createElement('div');
+    formMetrica.appendChild(messageDiv);
     btnConfirmMetrica.addEventListener('click', (event) => {
       event.preventDefault();
       const numeroCommit = parseInt(inputNumeroCommit.value);
@@ -132,13 +135,18 @@ function ingresarAMetricaDePractica(nombrePractica){
       const explicacion = inputExplicacion.value;
 
       if (!isNaN(numeroCommit) && !isNaN(puntaje) && explicacion) {
-        practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion);
-        ingresarAMetricaDePractica(nombrePractica);
-        alert('Dato ingresado Correctamente.'); // Actualiza la lista de métricas en pantalla
+        const result = practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion);
+        if (result) {
+          alert('Commit added successfully.');
+        } else {
+          alert('Invalid commit number. Commit numbers must be sequential and unique.');
+        }
+        ingresarAMetricaDePractica(nombrePractica);  // Refresh the list of metrics
       } else {
-        alert('Por favor ingrese valores válidos.');
+        alert('Please enter valid values.');
       }
     });
+
     formMetrica.appendChild(inputNumeroCommit);
     formMetrica.appendChild(inputPuntaje);
     formMetrica.appendChild(inputExplicacion);

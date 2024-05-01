@@ -218,5 +218,13 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metricas.find(m => m.numeroCommit === numCommit).puntaje).toEqual(85);
   });
 
+  it("Should not allow non-incremental commit numbers", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("Test", "Test Description", "2024-01-01", "http://example.com");
+    expect(practica.anadirMetrica(1, 90, "Initial commit")).toBe(true);  // Should succeed
+    expect(practica.anadirMetrica(1, 95, "Duplicate commit")).toBe(false);  // Should fail
+    expect(practica.anadirMetrica(0, 95, "Invalid commit")).toBe(false);  // Should fail
+    expect(practica.anadirMetrica(2, 95, "Second commit")).toBe(true);  // Should succeed
+  });
 });
 
