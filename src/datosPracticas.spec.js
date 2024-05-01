@@ -39,14 +39,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     let numCommit = 1;
 
     let metric = new Metrica(numCommit)
-    expect(metric.getNumreroCommit()).toEqual(1);
+    expect(metric.getNumeroCommit()).toEqual(1);
   });
 
   it("Se debe añadir un segundo commit en las metricas", () => {
     let numCommit1 = 2;
     
     let metric = new Metrica(numCommit1)
-    expect(metric.getNumreroCommit()).toEqual(2);
+    expect(metric.getNumeroCommit()).toEqual(2);
   });
 
   it("Se debe añadir un Puntaje ademas del numero de commit en las metricas", () => {
@@ -89,6 +89,21 @@ describe("Crear un programa gamificado para TDDLab", () => {
     let explicacion = "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla";
     let metricArray = new MetricaArray();
     expect(metricArray.desplegarMetrica()).toEqual([]);
+  });
+
+  it("Se logra mostrar un commit en el array de metricas", () => {
+    let numCommit = 1;
+    let puntaje = 100;
+    let explicacion = "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla";
+    let metricArray = new MetricaArray();
+    metricArray.anadirMetricaCommit(numCommit,puntaje,explicacion);
+
+    let arrayDeMetrica = [{
+      numeroCommit: 1,
+      puntaje: 100,
+      explicacion: "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla"
+    }]
+    expect(metricArray.desplegarMetrica()).toEqual(arrayDeMetrica);
   });
 });
 

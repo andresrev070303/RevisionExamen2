@@ -5,7 +5,7 @@ class Metrica {
         this.explicacion = explicacion;
     }
 
-    getNumreroCommit() {
+    getNumeroCommit() {
         return this.numeroCommit;
     }
 
