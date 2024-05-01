@@ -1,7 +1,8 @@
 class Metrica {
-    constructor(numeroCommit, puntaje) {
+    constructor(numeroCommit, puntaje, explicacion) {
         this.numeroCommit = numeroCommit;
         this.puntaje = puntaje;
+        this.explicacion = explicacion;
     }
 
     getNumreroCommit() {
@@ -12,6 +13,9 @@ class Metrica {
         return this.puntaje;
     }
 
+    getExplicacion() {
+        return this.explicacion;
+    }
 
 }
 
