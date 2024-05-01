@@ -6,6 +6,8 @@ class Metrica {
     getNumreroCommit() {
         return this.numeroCommit;
     }
+
+    
 }
 
 export default Metrica;
