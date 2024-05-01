@@ -7,7 +7,7 @@ class Practicas{
     this.fecha = null;
     this.enlace = null;
     this.metricaArray = new MetricaArray();
-    this.highestCommit = 0;
+    this.lastCommitNumber = 0;
   }
 
   cargarDatos(nombre, descripcion, fecha, enlace){
@@ -24,15 +24,13 @@ class Practicas{
   }
 
   anadirMetrica(numeroCommit, puntaje, explicacion) {
-    if (numeroCommit <= this.highestCommit) {
-      return false; // Return false if commit number is not higher than the highest
+    // Validar que el número de commit sea exactamente uno más que el último
+    if (numeroCommit === this.lastCommitNumber + 1) {
+        this.metricaArray.anadirMetricaCommit(numeroCommit, puntaje, explicacion);
+        this.lastCommitNumber = numeroCommit; // Actualizar el último número de commit
+        return true;
     }
-    if (numeroCommit != null && !isNaN(numeroCommit) && numeroCommit > 0) {
-      this.metricaArray.anadirMetricaCommit(numeroCommit, puntaje, explicacion);
-      this.highestCommit = numeroCommit;  // Update the highest commit number
-      return true;
-    }
-    return false;
+    return false; // Retornar false si el número no es el siguiente en la secuencia
   }
 
   motrarMetricas(){
