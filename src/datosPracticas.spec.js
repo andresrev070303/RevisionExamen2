@@ -170,5 +170,19 @@ describe("Crear un programa gamificado para TDDLab", () => {
     }]
     expect(metricArray.desplegarMetrica()).toEqual(arrayDeMetrica);
   });
+
+  it("Se deberia añadir una metrica de manera correcta", () => {
+    let practica = new Practicas("FizzBuzz");
+    let numCommit1 = 1;
+    let puntaje1 = 100;
+    let explicacion1 = "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla";
+    practica.anadirMetrica(numCommit1,puntaje1,explicacion1);
+    expect(practica.motrarMetricas()).toEqual([
+      {
+        numeroCommit: 1,
+        puntaje: 100,
+        explicacion: "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla"
+    }]);
+  });
 });
 

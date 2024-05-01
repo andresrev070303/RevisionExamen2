@@ -1,3 +1,4 @@
+import MetricaArray from "./metricasArray";
 
 class Practicas{
   constructor(){
@@ -5,6 +6,7 @@ class Practicas{
     this.descripcion = null;
     this.fecha = null;
     this.enlace = null;
+    this.metricaArray = new MetricaArray();
   }
 
   cargarDatos(nombre, descripcion, fecha, enlace){
@@ -18,6 +20,14 @@ class Practicas{
     if(this.nombre == nombre){
         return this;
     }
+  }
+
+  anadirMetrica(numeroCommit,puntaje,explicacion){
+    this.metricaArray.anadirMetricaCommit(numeroCommit,puntaje,explicacion);
+  }
+
+  motrarMetricas(){
+    return this.metricaArray.desplegarMetrica();
   }
 
   eliminarDatos(nombre){
