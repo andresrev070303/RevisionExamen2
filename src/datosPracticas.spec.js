@@ -197,5 +197,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metricas.length).toEqual(1);
     expect(metricas[0]).toEqual({ numeroCommit: numCommit, puntaje: puntaje, explicacion: explicacion });
   });
+
+  it("No debe añadir una métrica si el número de commit es inválido", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("Calculadora", "Prueba unitaria para suma", "2024-05-01", "https://github.com/example/Calculadora");
+    practica.anadirMetrica(null, 90, "Explicación válida");
+  
+    const metricas = practica.motrarMetricas();
+    expect(metricas.length).toEqual(0);
+  });
 });
 

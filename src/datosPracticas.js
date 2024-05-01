@@ -22,8 +22,11 @@ class Practicas{
     }
   }
 
-  anadirMetrica(numeroCommit,puntaje,explicacion){
-    this.metricaArray.anadirMetricaCommit(numeroCommit,puntaje,explicacion);
+  anadirMetrica(numeroCommit, puntaje, explicacion) {
+    // Añadir validación para asegurarse de que el número de commit es válido
+    if (numeroCommit != null && !isNaN(numeroCommit) && numeroCommit > 0) {
+      this.metricaArray.anadirMetricaCommit(numeroCommit, puntaje, explicacion);
+    }
   }
 
   motrarMetricas(){
