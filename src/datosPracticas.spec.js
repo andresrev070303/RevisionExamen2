@@ -220,5 +220,17 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.anadirMetrica(0, 95, "Invalid commit")).toBe(false);  // Should fail
     expect(practica.anadirMetrica(2, 95, "Second commit")).toBe(true);  // Should succeed
   });
+
+  it("Se debe poder eliminar un commit correctamente", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("FizzBuzz");
+    practica.anadirMetrica(1, 85, "Primer commit");
+    practica.anadirMetrica(2, 75, "Segundo commit");
+    practica.eliminarMetrica(1);
+    const metricas = practica.motrarMetricas();
+    expect(metricas.length).toEqual(1);
+    expect(metricas[0]).toEqual({ numeroCommit: 2, puntaje: 75, explicacion: "Segundo commit" });
+  });
+
 });
 

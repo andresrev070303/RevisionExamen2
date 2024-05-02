@@ -45,6 +45,12 @@ class Practicas{
         this.enlace = null;
     }
   }
+
+  eliminarMetrica(numeroCommit) {
+    this.metricaArray.eliminarMetricaCommit(numeroCommit);
+  }  
+
+  
 }
 
 export default Practicas;

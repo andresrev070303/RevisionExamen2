@@ -26,6 +26,10 @@ class MetricaArray{
     }));
   }
 
+  eliminarMetricaCommit(numeroCommit) {
+    this.metricaArray = this.metricaArray.filter(metrica => metrica.numeroCommit !== numeroCommit);
+  }
+
 }
 
 export default MetricaArray;
