@@ -275,5 +275,15 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.obtenerPractica("NotFound")).toBeUndefined();
   });
 
+  it("debería devolver nulo al buscar una práctica inexistente", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("FizzBuzz");
+    practica.cargarDatos("NombreActualizado", "ActualizadoDescripción", "2025-01-01", "https://newurl.com");
+    expect(practica.nombre).toEqual("NombreActualizado");
+    expect(practica.descripcion).toEqual("ActualizadoDescripción");
+    expect(practica.fecha).toEqual("2025-01-01");
+    expect(practica.enlace).toEqual("https://newurl.com");
+  });
+
 });
 
