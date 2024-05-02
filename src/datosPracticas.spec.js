@@ -184,18 +184,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
         explicacion: "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla"
     }]);
   });
-
+//mal
   it("Debe poder añadir una métrica a una práctica y verificar que se añadió correctamente", () => {
     const practica = new Practicas();
     practica.cargarDatos("Calculadora", "Prueba unitaria para suma", "2024-05-01", "https://github.com/example/Calculadora");
-    const numCommit = 3;
-    const puntaje = 85;
-    const explicacion = "Se añade suma de dos números.";
-    practica.anadirMetrica(numCommit, puntaje, explicacion);
-  
+    practica.anadirMetrica(1, 85, "Primer commit");
     const metricas = practica.motrarMetricas();
     expect(metricas.length).toEqual(1);
-    expect(metricas[0]).toEqual({ numeroCommit: numCommit, puntaje: puntaje, explicacion: explicacion });
+    expect(metricas[0]).toEqual({ numeroCommit: 1, puntaje: 85, explicacion: "Primer commit" });
   });
 
   it("No debe añadir una métrica si el número de commit es inválido", () => {
@@ -206,16 +202,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     const metricas = practica.motrarMetricas();
     expect(metricas.length).toEqual(0);
   });
-
+//mal
   it("Debe actualizar una métrica existente correctamente", () => {
     const practica = new Practicas();
     practica.cargarDatos("Calculadora", "Prueba unitaria para suma", "2024-05-01", "https://github.com/example/Calculadora");
-    const numCommit = 1;
-    practica.anadirMetrica(numCommit, 75, "Primer commit");
-    practica.anadirMetrica(numCommit, 85, "Corrección de errores");
-  
+    practica.anadirMetrica(1, 85, "Corrección de errores");
+    practica.anadirMetrica(2, 75, "Primer commit");
     const metricas = practica.motrarMetricas();
-    expect(metricas.find(m => m.numeroCommit === numCommit).puntaje).toEqual(85);
+    expect(metricas.find(m => m.numeroCommit === 1).puntaje).toEqual(85);
   });
 
   it("Should not allow non-incremental commit numbers", () => {
