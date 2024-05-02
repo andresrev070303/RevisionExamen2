@@ -260,5 +260,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     metrica.puntaje = metrica.calcularPuntaje(metrica.puntaje);
     expect(metrica.getPuntaje()).toEqual(900);
   });
+
+  //PRUEBAS FINALES DEL PROGRAMA FUNCIONAL
+  it("Debe retornar falso si se intenta añadir un commit no secuencial", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("Test Project", "Descripción del test", "2024-01-01", "http://example.com");
+    expect(practica.anadirMetrica(1, 100, "Primer commit")).toBe(true);
+    expect(practica.anadirMetrica(3, 90, "Saltando un commit")).toBe(false);
+  });
+  
 });
 
