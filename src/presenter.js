@@ -135,13 +135,10 @@ function ingresarAMetricaDePractica(nombrePractica) {
     inputNumeroCommit.placeholder = 'Número de commit';
     const inputPuntaje = document.createElement('input');
     inputPuntaje.type = 'number';
-    
     inputPuntaje.placeholder = 'Puntaje';
-    
     const inputPrueba = document.createElement('input');
     inputPrueba.type = 'number';
     inputPrueba.placeholder = 'Prueba';
-
     const inputExplicacion = document.createElement('input');
     inputExplicacion.type = 'text';
     inputExplicacion.placeholder = 'Explicación';
@@ -155,7 +152,7 @@ function ingresarAMetricaDePractica(nombrePractica) {
       const numeroCommit = parseInt(inputNumeroCommit.value);
       const puntaje = parseInt(inputPuntaje.value);
       const explicacion = inputExplicacion.value;
-      const prueba = parseInt (inputPrueba.value);
+      const prueba = parseInt(inputPrueba.value);
 
       if (!isNaN(numeroCommit) && !isNaN(puntaje) && explicacion) {
         const result = practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion, prueba);

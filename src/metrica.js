@@ -17,6 +17,7 @@ class Metrica {
     getExplicacion() {
         return this.explicacion;
     }
+    
     cargarMetricas(pruebas){
         this.pruebas= pruebas;
     }

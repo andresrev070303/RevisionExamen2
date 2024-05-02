@@ -23,6 +23,7 @@ class MetricaArray{
   desplegarMetrica() {
     return this.metricaArray.map(metrica => ({
       numeroCommit: metrica.getNumeroCommit(),
+      pruebas: metrica.pruebas, 
       puntaje: metrica.getPuntaje(),
       explicacion: metrica.getExplicacion()
     }));
