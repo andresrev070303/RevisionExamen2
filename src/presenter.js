@@ -139,6 +139,9 @@ function ingresarAMetricaDePractica(nombrePractica) {
     const inputPrueba = document.createElement('input');
     inputPrueba.type = 'number';
     inputPrueba.placeholder = 'Prueba';
+    const inputCobertura = document.createElement('input');
+    inputCobertura.type = 'number';
+    inputCobertura.placeholder = 'Cobertura';
     const inputExplicacion = document.createElement('input');
     inputExplicacion.type = 'text';
     inputExplicacion.placeholder = 'Explicación';
@@ -153,9 +156,10 @@ function ingresarAMetricaDePractica(nombrePractica) {
       const puntaje = parseInt(inputPuntaje.value);
       const explicacion = inputExplicacion.value;
       const prueba = parseInt(inputPrueba.value);
+      const cobertura = parseInt(inputCobertura.value);
 
       if (!isNaN(numeroCommit) && !isNaN(puntaje) && explicacion) {
-        const result = practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion, prueba);
+        const result = practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion, prueba, cobertura);
         if (result) {
           alert('Commit added successfully.');
         } else {
@@ -169,6 +173,7 @@ function ingresarAMetricaDePractica(nombrePractica) {
 
     formMetrica.appendChild(inputNumeroCommit);
     formMetrica.appendChild(inputPrueba);
+    formMetrica.appendChild(inputCobertura);
     formMetrica.appendChild(inputPuntaje);
     formMetrica.appendChild(inputExplicacion);
     formMetrica.appendChild(btnConfirmMetrica);

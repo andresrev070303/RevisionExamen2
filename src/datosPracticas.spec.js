@@ -37,7 +37,6 @@ describe("Crear un programa gamificado para TDDLab", () => {
   
   it("Se debe añadir un primer commit en las metricas", () => {
     let numCommit = 1;
-
     let metric = new Metrica(numCommit)
     expect(metric.getNumeroCommit()).toEqual(1);
   });
@@ -73,7 +72,7 @@ describe("Crear un programa gamificado para TDDLab", () => {
     let explica = new Metrica(numCommit, puntaje,explicacion)
     expect(explica.getExplicacion()).toEqual("Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla");
   });
-  //12
+  
   it("Se añade ademas del numero de commit y el puntaje la explicacion de un segundo commit en las metricas", () => {
     let numCommit = 2;
     let puntaje = 90;
@@ -132,9 +131,6 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metricArray.desplegarMetrica()).toEqual(arrayDeMetrica);
   });
 
-
-
-
   it("Se logra mostrar mas de dos commits en un array de metricas", () => {
     let numCommit1 = 1;
     let puntaje1 = 100;
@@ -184,7 +180,7 @@ describe("Crear un programa gamificado para TDDLab", () => {
         explicacion: "Se aniade la funcionalidad de retornar el numero 1, porque no sigue ninguna regla"
     }]);
   });
-//mal
+
   it("Debe poder añadir una métrica a una práctica y verificar que se añadió correctamente", () => {
     const practica = new Practicas();
     practica.cargarDatos("Calculadora", "Prueba unitaria para suma", "2024-05-01", "https://github.com/example/Calculadora");
@@ -215,10 +211,10 @@ describe("Crear un programa gamificado para TDDLab", () => {
   it("Should not allow non-incremental commit numbers", () => {
     const practica = new Practicas();
     practica.cargarDatos("Test", "Test Description", "2024-01-01", "http://example.com");
-    expect(practica.anadirMetrica(1, 90, "Initial commit")).toBe(true);  // Should succeed
-    expect(practica.anadirMetrica(1, 95, "Duplicate commit")).toBe(false);  // Should fail
-    expect(practica.anadirMetrica(0, 95, "Invalid commit")).toBe(false);  // Should fail
-    expect(practica.anadirMetrica(2, 95, "Second commit")).toBe(true);  // Should succeed
+    expect(practica.anadirMetrica(1, 90, "Initial commit")).toBe(true);  
+    expect(practica.anadirMetrica(1, 95, "Duplicate commit")).toBe(false);  
+    expect(practica.anadirMetrica(0, 95, "Invalid commit")).toBe(false);  
+    expect(practica.anadirMetrica(2, 95, "Second commit")).toBe(true);  
   });
 
   it("Se debe poder eliminar un commit correctamente", () => {
@@ -231,11 +227,17 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metricas.length).toEqual(1);
     expect(metricas[0]).toEqual({ numeroCommit: 2, puntaje: 75, explicacion: "Segundo commit" });
   });
+  
+  it("Si se ingresa una prueba se muestra el numero de pruebas", () => {
+    const metrica = new Metrica();
+    metrica.cargarMetricas(7);
+    expect(metrica.pruebas).toEqual(7);
+  });
 
-});
-it("Si se ingresa una prueba se muestra el numero de pruebas", () => {
-  const metrica = new Metrica();
-  metrica.cargarMetricas(7);
-  expect(metrica.pruebas).toEqual(7);
+  it("Si se ingresa numero de pruebas y cobertura se retorna la cobertura, ademas del numero de pruebas", () => {
+    const metrica = new Metrica();
+    metrica.cargarMetricas(7, 93);
+    expect(metrica.cobertura).toEqual(93);
+  });
 });
 

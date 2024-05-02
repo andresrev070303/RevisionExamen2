@@ -4,6 +4,7 @@ class Metrica {
         this.puntaje = puntaje;
         this.explicacion = explicacion;
         this.pruebas = null;
+        this.cobertura = null;
     }
 
     getNumeroCommit() {
@@ -17,9 +18,10 @@ class Metrica {
     getExplicacion() {
         return this.explicacion;
     }
-    
-    cargarMetricas(pruebas){
-        this.pruebas= pruebas;
+
+    cargarMetricas(pruebas, cobertura){
+        this.pruebas = pruebas;
+        this.cobertura = cobertura;
     }
 
 }

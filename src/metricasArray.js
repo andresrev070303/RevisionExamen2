@@ -5,7 +5,7 @@ class MetricaArray{
         this.metricaArray = [];
     } 
 
-    anadirMetricaCommit(numeroCommit, puntaje, explicacion, pruebas) {
+    anadirMetricaCommit(numeroCommit, puntaje, explicacion, pruebas, cobertura) {
     const existingMetric = this.metricaArray.find(m => m.numeroCommit === numeroCommit);
     if (existingMetric) {
       // Actualiza la métrica existente
@@ -15,7 +15,7 @@ class MetricaArray{
       // Añade una nueva métrica
 
       const commitMetric = new Metrica(numeroCommit, puntaje, explicacion);
-      commitMetric.cargarMetricas(pruebas);
+      commitMetric.cargarMetricas(pruebas, cobertura);
       this.metricaArray.push(commitMetric);
     }
   }
@@ -24,6 +24,7 @@ class MetricaArray{
     return this.metricaArray.map(metrica => ({
       numeroCommit: metrica.getNumeroCommit(),
       pruebas: metrica.pruebas, 
+      cobertura: metrica.cobertura,
       puntaje: metrica.getPuntaje(),
       explicacion: metrica.getExplicacion()
     }));
