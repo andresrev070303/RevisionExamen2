@@ -24,6 +24,19 @@ class Metrica {
         this.cobertura = cobertura;
     }
 
+    calcularPuntaje(puntaje){
+        if(this.pruebas >= 1 && this.pruebas <= 5){
+            puntaje += 1000;
+        }
+        else if (this.pruebas > 5){
+            puntaje += 1000;
+            let contador = pruebas-5;
+            for(contador; contador>0; contador--){
+                puntaje -= 50;
+            }
+        }
+        return puntaje;
+    }
 }
 
 export default Metrica;
