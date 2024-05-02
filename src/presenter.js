@@ -72,35 +72,33 @@ function actualizarTablaPracticas() {
   `).join('');
 }
 
-function ingresarAMetricaDePractica(nombrePractica){
+function ingresarAMetricaDePractica(nombrePractica) {
   const practicaSeleccionada = practicas.find(practica => practica.nombre === nombrePractica);
   const proyectoContainer = document.querySelector('#proyectoContainer');
   const tablaPracticas = document.querySelector('#tabla-practicas');
   const tablaEncabezados = document.querySelector('#tabla-encabezado');
   const formularioPractica = document.querySelector('#proyectoForm');
 
-  // Ocultar la tabla de prácticas y el formulario de entrada
   tablaPracticas.style.display = 'none';
   formularioPractica.style.display = 'none';
 
-  // Limpiar el contenedor de proyecto y prepararlo para mostrar métricas
   proyectoContainer.innerHTML = '';
-  proyectoContainer.style.display = 'block'; // Asegurar que el contenedor está visible
+  proyectoContainer.style.display = 'block'; 
 
   tablaEncabezados.style.display = 'none';
 
   if (practicaSeleccionada) {
     const tituloPracticaElement = document.createElement('h2');
-    tituloPracticaElement.textContent = `Práctica: ${nombrePractica}`;
+    tituloPracticaElement.textContent = Práctica: ${nombrePractica};
     proyectoContainer.appendChild(tituloPracticaElement);
 
     const btnVolver = document.createElement('button');
     btnVolver.textContent = 'Volver a la lista de prácticas';
     btnVolver.addEventListener('click', function() {
       tablaEncabezados.style.display = 'table';
-      proyectoContainer.innerHTML = ''; // Limpiar contenedor de proyectos
-      tablaPracticas.style.display = 'table'; // Mostrar la tabla de nuevo
-      formularioPractica.style.display = 'block'; // Mostrar formulario de nuevo
+      proyectoContainer.innerHTML = ''; 
+      tablaPracticas.style.display = 'table'; 
+      formularioPractica.style.display = 'block';
     });
     proyectoContainer.appendChild(btnVolver);
 
@@ -108,7 +106,20 @@ function ingresarAMetricaDePractica(nombrePractica){
     const metricasPractica = practicaSeleccionada.motrarMetricas();
     metricasPractica.forEach(metrica => {
       const metricaItem = document.createElement('li');
-      metricaItem.textContent = `Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion}`;
+      metricaItem.textContent = Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion};
+      
+      const btnEliminar = document.createElement('button');
+      btnEliminar.textContent = 'Eliminar';
+      btnEliminar.addEventListener('click', function() {
+        if (confirm("¿Estás seguro de eliminar este commit?")) {
+          practicaSeleccionada.eliminarMetrica(metrica.numeroCommit);
+          ingresarAMetricaDePractica(nombrePractica); 
+        }
+      });
+
+    
+      metricaItem.appendChild(btnEliminar);
+      
       listaMetricas.appendChild(metricaItem);
     });
     proyectoContainer.appendChild(listaMetricas);
@@ -141,7 +152,7 @@ function ingresarAMetricaDePractica(nombrePractica){
         } else {
           alert('Invalid commit number. Commit numbers must be sequential and unique.');
         }
-        ingresarAMetricaDePractica(nombrePractica);  // Refresh the list of metrics
+        ingresarAMetricaDePractica(nombrePractica);  
       } else {
         alert('Please enter valid values.');
       }
@@ -153,7 +164,6 @@ function ingresarAMetricaDePractica(nombrePractica){
     formMetrica.appendChild(btnConfirmMetrica);
     proyectoContainer.appendChild(formMetrica);
   }
-  
 }
 
 window.eliminarPractica = eliminarPractica;
