@@ -5,7 +5,7 @@ class MetricaArray{
         this.metricaArray = [];
     } 
 
-    anadirMetricaCommit(numeroCommit,pruebas, puntaje, explicacion) {
+    anadirMetricaCommit(numeroCommit, puntaje, explicacion, pruebas) {
     const existingMetric = this.metricaArray.find(m => m.numeroCommit === numeroCommit);
     if (existingMetric) {
       // Actualiza la métrica existente

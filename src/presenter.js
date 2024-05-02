@@ -158,7 +158,7 @@ function ingresarAMetricaDePractica(nombrePractica) {
       const prueba = parseInt (inputPrueba.value);
 
       if (!isNaN(numeroCommit) && !isNaN(puntaje) && explicacion) {
-        const result = practicaSeleccionada.anadirMetrica(numeroCommit,prueba, puntaje, explicacion);
+        const result = practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion, prueba);
         if (result) {
           alert('Commit added successfully.');
         } else {
