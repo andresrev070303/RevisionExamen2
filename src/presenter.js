@@ -110,7 +110,7 @@ function ingresarAMetricaDePractica(nombrePractica) {
       const metricaItem = document.createElement('li');
       //metricaItem.textContent = Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion};
       
-      metricaItem.textContent = `Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion}`;
+      metricaItem.textContent = `Commit: ${metrica.numeroCommit},Numero de pruebas: ${metrica.pruebas}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion}`;
 
 
       const btnEliminar = document.createElement('button');
@@ -135,7 +135,13 @@ function ingresarAMetricaDePractica(nombrePractica) {
     inputNumeroCommit.placeholder = 'Número de commit';
     const inputPuntaje = document.createElement('input');
     inputPuntaje.type = 'number';
+    
     inputPuntaje.placeholder = 'Puntaje';
+    
+    const inputPrueba = document.createElement('input');
+    inputPrueba.type = 'number';
+    inputPrueba.placeholder = 'Prueba';
+
     const inputExplicacion = document.createElement('input');
     inputExplicacion.type = 'text';
     inputExplicacion.placeholder = 'Explicación';
@@ -149,9 +155,10 @@ function ingresarAMetricaDePractica(nombrePractica) {
       const numeroCommit = parseInt(inputNumeroCommit.value);
       const puntaje = parseInt(inputPuntaje.value);
       const explicacion = inputExplicacion.value;
+      const prueba = parseInt (inputPrueba.value);
 
       if (!isNaN(numeroCommit) && !isNaN(puntaje) && explicacion) {
-        const result = practicaSeleccionada.anadirMetrica(numeroCommit, puntaje, explicacion);
+        const result = practicaSeleccionada.anadirMetrica(numeroCommit,prueba, puntaje, explicacion);
         if (result) {
           alert('Commit added successfully.');
         } else {
@@ -164,6 +171,7 @@ function ingresarAMetricaDePractica(nombrePractica) {
     });
 
     formMetrica.appendChild(inputNumeroCommit);
+    formMetrica.appendChild(inputPrueba);
     formMetrica.appendChild(inputPuntaje);
     formMetrica.appendChild(inputExplicacion);
     formMetrica.appendChild(btnConfirmMetrica);
