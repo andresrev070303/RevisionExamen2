@@ -397,5 +397,13 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metrics[1].cobertura).toEqual(85);
   });
 
+  it("debe conservar la cobertura anterior si no se especifica en una actualización", () => {
+    const practica = new Practicas();
+    practica.anadirMetrica(1, 85, "First commit", 10, 70);
+    practica.anadirMetrica(1, 90, "Updated first commit", 10);  // Actualizar sin especificar nueva cobertura
+    const metrics = practica.motrarMetricas();
+    expect(metrics.find(m => m.numeroCommit === 1).cobertura).toEqual(70);
+  });
+
 });
 
