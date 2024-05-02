@@ -292,5 +292,11 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.lastCommitNumber).toEqual(2);
   });
 
+  it("debe calcular correctamente el número total de pruebas ejecutadas", () => {
+    const practica = new Practicas();
+    practica.pruebas = [1, 2, 3, 4, 5];
+    expect(practica.contarPruebas()).toEqual(5);
+  });
+
 });
 
