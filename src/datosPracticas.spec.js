@@ -379,5 +379,12 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metrics[0].numeroCommit).toEqual(2);
   });
 
+  it("debe agregar una métrica con cobertura y verificar que la cobertura esté almacenada correctamente", () => {
+    const practica = new Practicas();
+    practica.anadirMetrica(1, 85, "First commit with coverage", 50, 80);
+    const metrics = practica.motrarMetricas();
+    expect(metrics.length).toEqual(1);
+    expect(metrics[0].cobertura).toEqual(80);
+  });
 });
 
