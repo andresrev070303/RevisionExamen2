@@ -8,6 +8,7 @@ class Practicas{
     this.enlace = null;
     this.metricaArray = new MetricaArray();
     this.lastCommitNumber = 0;
+    this.pruebas = [];
   }
 
   cargarDatos(nombre, descripcion, fecha, enlace){
@@ -49,6 +50,9 @@ class Practicas{
   eliminarMetrica(numeroCommit) {
     this.metricaArray.eliminarMetricaCommit(numeroCommit);
   }  
+  contarPruebas() {
+    return this.pruebas.length;
+  }
 
   
 }

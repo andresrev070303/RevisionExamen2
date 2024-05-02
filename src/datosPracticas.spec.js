@@ -233,4 +233,8 @@ describe("Crear un programa gamificado para TDDLab", () => {
   });
 
 });
+it("Debe mostrar cero pruebas al inicio", () => {
+  const practica = new Practicas();
+  expect(practica.contarPruebas()).toEqual(0);
+});
 
