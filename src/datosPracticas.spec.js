@@ -334,5 +334,16 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.motrarMetricas()).not.toContain({ numeroCommit: 3, puntaje: 80, explicacion: "Edición externa" });
   });
 
+  it("debe eliminar una métrica por número de confirmación y verificar que se haya eliminado", () => {
+    const practica = new Practicas();
+    practica.anadirMetrica(1, 85, "First commit");
+    practica.anadirMetrica(2, 90, "Second commit");
+    practica.eliminarMetrica(1);
+    const metrics = practica.motrarMetricas();
+    expect(metrics.some(m => m.numeroCommit === 1)).toEqual(false);
+    expect(metrics.length).toEqual(1);
+    expect(metrics[0].numeroCommit).toEqual(2);
+  });
+
 });
 
