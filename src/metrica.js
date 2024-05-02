@@ -30,7 +30,7 @@ class Metrica {
         }
         else if (this.pruebas > 5){
             puntaje += 1000;
-            let contador = pruebas-5;
+            let contador = this.pruebas-5;
             for(contador; contador>0; contador--){
                 puntaje -= 50;
             }

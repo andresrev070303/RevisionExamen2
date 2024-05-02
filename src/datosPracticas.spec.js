@@ -246,5 +246,19 @@ describe("Crear un programa gamificado para TDDLab", () => {
     metrica.puntaje = metrica.calcularPuntaje(metrica.puntaje);
     expect(metrica.getPuntaje()).toEqual(1000);
   });
+
+  it("Si se ingresa 5 pruebas, se calcula el puntaje como 1000 puntos", () => {
+    const metrica = new Metrica(1, 0, "Prueba de commit");
+    metrica.cargarMetricas(5, 93);
+    metrica.puntaje = metrica.calcularPuntaje(metrica.puntaje);
+    expect(metrica.getPuntaje()).toEqual(1000);
+  });
+
+  it("Si se ingresa 7 pruebas, no se contempla en el rango ideal por lo que se reduce el puntaje en 100 puntos, retornando 900 puntos", () => {
+    const metrica = new Metrica(1, 0, "Prueba de commit");
+    metrica.cargarMetricas(7, 93);
+    metrica.puntaje = metrica.calcularPuntaje(metrica.puntaje);
+    expect(metrica.getPuntaje()).toEqual(900);
+  });
 });
 
