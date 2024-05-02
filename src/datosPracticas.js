@@ -23,6 +23,7 @@ class Practicas{
         return this;
     }
   }
+  
 
   anadirMetrica(numeroCommit, puntaje, explicacion, pruebas, cobertura) {
     // Validar que el número de commit sea exactamente uno más que el último
@@ -31,7 +32,7 @@ class Practicas{
         this.lastCommitNumber = numeroCommit; // Actualizar el último número de commit
         return true;
     }
-    return false; // Retornar false si el número no es el siguiente en la secuencia
+    return false; 
   }
 
   motrarMetricas(){

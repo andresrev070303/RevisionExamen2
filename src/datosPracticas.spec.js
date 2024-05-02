@@ -405,5 +405,6 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metrics.find(m => m.numeroCommit === 1).cobertura).toEqual(70);
   });
 
+
 });
 

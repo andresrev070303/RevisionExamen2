@@ -56,6 +56,19 @@ function eliminarPractica(nombre) {
 
 }
 
+function buscarPracticaPorNombre() {
+  const searchName = document.getElementById('searchName').value;
+  const foundPractica = practicas.find(practica => practica.nombre === searchName);
+  if (foundPractica) {
+    alert('Práctica encontrada: ' + foundPractica.nombre);
+  } else {
+    alert('No se encontró la práctica.');
+  }
+  
+} //Esta es la funcion de buscar en el buscador
+
+document.getElementById("searchButton").addEventListener("click", buscarPracticaPorNombre);
+
 function actualizarTablaPracticas() {
   const contenido = document.querySelector("#tabla-practicas");
   contenido.innerHTML = practicas.map(practica => `
