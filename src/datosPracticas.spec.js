@@ -345,5 +345,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metrics[0].numeroCommit).toEqual(2);
   });
 
+  it("debería manejar la eliminación de una confirmación inexistente con gracia", () => {
+    const practica = new Practicas();
+    practica.anadirMetrica(1, 85, "First commit");
+    practica.eliminarMetrica(2); // Intentar eliminar una confirmación inexistente
+    const metrics = practica.motrarMetricas();
+    expect(metrics.length).toEqual(1);
+    expect(metrics[0].numeroCommit).toEqual(1);
+  });
+
 });
 
