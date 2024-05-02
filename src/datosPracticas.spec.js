@@ -268,6 +268,12 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.anadirMetrica(1, 100, "Primer commit")).toBe(true);
     expect(practica.anadirMetrica(3, 90, "Saltando un commit")).toBe(false);
   });
-  
+
+  it("debería devolver nulo al buscar una práctica inexistente", () => {
+    const practica = new Practicas();
+    practica.cargarDatos("FizzBuzz");
+    expect(practica.obtenerPractica("NotFound")).toBeUndefined();
+  });
+
 });
 
