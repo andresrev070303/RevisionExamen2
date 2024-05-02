@@ -285,5 +285,12 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.enlace).toEqual("https://newurl.com");
   });
 
+  it("debe realizar un seguimiento preciso del último número de confirmación", () => {
+    const practica = new Practicas();
+    practica.anadirMetrica(1, 100, "Configuración inicial");
+    practica.anadirMetrica(2, 90, "Added new feature");
+    expect(practica.lastCommitNumber).toEqual(2);
+  });
+
 });
 
