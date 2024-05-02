@@ -315,5 +315,12 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(metrics.length).toEqual(2);
   });
 
+  it("debe informar con precisión el número de confirmación más alto", () => {
+    const practica = new Practicas();
+    practica.anadirMetrica(1, 90, "Commit one");
+    practica.anadirMetrica(2, 95, "Commit two");
+    expect(practica.lastCommitNumber).toEqual(2);
+  });
+
 });
 
