@@ -327,5 +327,12 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.anadirMetrica("uno", 100, "Non-integer commit")).toEqual(false);
   });
 
+  it("no debe modificar la matriz de métricas directamente desde el exterior", () => {
+    const practica = new Practicas();
+    const initialMetrics = practica.motrarMetricas();
+    initialMetrics.push({ numeroCommit: 3, puntaje: 80, explicacion: "Edición externa" });
+    expect(practica.motrarMetricas()).not.toContain({ numeroCommit: 3, puntaje: 80, explicacion: "Edición externa" });
+  });
+
 });
 
