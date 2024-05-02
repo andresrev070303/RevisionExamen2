@@ -43,5 +43,13 @@ describe("Practicas System Tests - Search Feature", () => {
         expect(allFound.length).toBeGreaterThan(1);
         expect(allFound[0].descripcion).not.toEqual(allFound[1].descripcion);
       });
+
+      it("Debe retornar la primera coincidencia a pesar demas opciones", () => {
+        let practicaDuplicate = new Practicas();
+        practicaDuplicate.cargarDatos("Totalizador", "Duplicate Totalizador entry", "2024-06-06", "http://exampleduplicate.com");
+        practicas.push(practicaDuplicate);
+        const foundPractica = practicas.find(practica => practica.nombre === "Totalizador");
+        expect(foundPractica.descripcion).toEqual("Another description"); // Assumes first inserted "Totalizador" is found first
+      });
   
   });
