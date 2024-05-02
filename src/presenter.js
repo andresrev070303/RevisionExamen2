@@ -89,7 +89,9 @@ function ingresarAMetricaDePractica(nombrePractica) {
 
   if (practicaSeleccionada) {
     const tituloPracticaElement = document.createElement('h2');
-    tituloPracticaElement.textContent = Práctica: ${nombrePractica};
+    //tituloPracticaElement.textContent = Práctica: ${nombrePractica};
+    tituloPracticaElement.textContent = `Práctica: ${nombrePractica}`;
+
     proyectoContainer.appendChild(tituloPracticaElement);
 
     const btnVolver = document.createElement('button');
@@ -106,8 +108,11 @@ function ingresarAMetricaDePractica(nombrePractica) {
     const metricasPractica = practicaSeleccionada.motrarMetricas();
     metricasPractica.forEach(metrica => {
       const metricaItem = document.createElement('li');
-      metricaItem.textContent = Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion};
+      //metricaItem.textContent = Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion};
       
+      metricaItem.textContent = `Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion}`;
+
+
       const btnEliminar = document.createElement('button');
       btnEliminar.textContent = 'Eliminar';
       btnEliminar.addEventListener('click', function() {
