@@ -3,6 +3,7 @@ class Metrica {
         this.numeroCommit = numeroCommit;
         this.puntaje = puntaje;
         this.explicacion = explicacion;
+        this.pruebas = null;
     }
 
     getNumeroCommit() {
@@ -15,6 +16,9 @@ class Metrica {
 
     getExplicacion() {
         return this.explicacion;
+    }
+    cargarMetricas(pruebas){
+        this.pruebas= pruebas;
     }
 
 }
