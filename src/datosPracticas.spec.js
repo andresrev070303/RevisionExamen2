@@ -322,5 +322,10 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.lastCommitNumber).toEqual(2);
   });
 
+  it("debería rechazar métricas con números de confirmación no enteros", () => {
+    const practica = new Practicas();
+    expect(practica.anadirMetrica("uno", 100, "Non-integer commit")).toEqual(false);
+  });
+
 });
 
