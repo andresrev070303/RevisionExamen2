@@ -298,5 +298,14 @@ describe("Crear un programa gamificado para TDDLab", () => {
     expect(practica.contarPruebas()).toEqual(5);
   });
 
+  it("debería permitir la eliminación de todas las métricas", () => {
+    const practica = new Practicas();
+    practica.anadirMetrica(1, 100, "First");
+    practica.anadirMetrica(2, 100, "Second");
+    practica.eliminarMetrica(1);
+    practica.eliminarMetrica(2);
+    expect(practica.motrarMetricas()).toEqual([]);
+  });
+
 });
 
