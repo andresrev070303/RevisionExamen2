@@ -110,7 +110,7 @@ function ingresarAMetricaDePractica(nombrePractica) {
       const metricaItem = document.createElement('li');
       //metricaItem.textContent = Commit: ${metrica.numeroCommit}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion};
       
-      metricaItem.textContent = `Commit: ${metrica.numeroCommit},Numero de pruebas: ${metrica.pruebas}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion}`;
+      metricaItem.textContent = `Commit: ${metrica.numeroCommit}, Numero de pruebas: ${metrica.pruebas}, Porcentaje de cobertura: ${metrica.cobertura}, Puntaje: ${metrica.puntaje}, Explicación: ${metrica.explicacion}`;
 
 
       const btnEliminar = document.createElement('button');
