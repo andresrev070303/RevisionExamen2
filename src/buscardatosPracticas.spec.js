@@ -33,5 +33,15 @@ describe("Practicas System Tests - Search Feature", () => {
       expect(foundPractica.fecha).toEqual("2024-02-02");
       expect(foundPractica.enlace).toEqual("http://example2.com");
     });
+
+
+    it("Debe retornar la busqueda luego de varias busquedas", () => {
+        let practica3 = new Practicas();
+        practica3.cargarDatos("FizzBuzz", "Duplicate entry", "2025-03-03", "http://example3.com");
+        practicas.push(practica3);
+        const allFound = practicas.filter(practica => practica.nombre === "FizzBuzz");
+        expect(allFound.length).toBeGreaterThan(1);
+        expect(allFound[0].descripcion).not.toEqual(allFound[1].descripcion);
+      });
   
   });
