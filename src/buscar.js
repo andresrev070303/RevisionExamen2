@@ -1,8 +1,8 @@
 function buscarProyecto(nombreProyecto, proyectos) {
     if (proyectos.length == 0) {
-        return "";
+        return [];
     }
-    return proyectos.find(proyecto => proyecto === nombreProyecto);
+    return proyectos.filter(proyecto => proyecto === nombreProyecto);
 }
 
 export default buscarProyecto;
