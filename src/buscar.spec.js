@@ -32,4 +32,11 @@ describe('buscador', () => {
         proyectos.push("ejercicio3");
         expect(buscarProyecto("ejerc", proyectos)).toEqual(["ejercicio1", "ejercicio2", "ejercicio3"]);
     });
+    it("Deberia devolver '' cuando no encuentra nada ", () => {
+        let proyectos = [];
+        proyectos.push("ejercicio1");
+        proyectos.push("ejercicio2");
+        proyectos.push("ejercicio3");
+        expect(buscarProyecto("prueba", proyectos)).toEqual("");
+    });
 });
